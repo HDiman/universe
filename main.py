@@ -1,10 +1,26 @@
 import random
+from enum import IntEnum
+
+
+class Action(IntEnum):
+    Rock = 0
+    Paper = 1
+    Scissors = 2
+
 
 # randon choice
 def choice():
-    loc = ['stone', 'scissors', 'paper']
-    num = random.randint(0, 2)
-    return loc[num]
+    possible_actions = ['rock', 'scissors', 'paper']
+    computer_action = random.choice(possible_actions)
+    return computer_action
+
+def who_wins(a, b):
+    if a == b:
+        return 'draw'
+    elif
 
 
-print(choice())
+for i in range(100):
+    print(i+1)
+
+
