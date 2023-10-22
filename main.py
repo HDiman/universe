@@ -8,19 +8,34 @@ class Action(IntEnum):
     Scissors = 2
 
 
-# randon choice
-def choice():
-    possible_actions = ['rock', 'scissors', 'paper']
-    computer_action = random.choice(possible_actions)
-    return computer_action
-
-def who_wins(a, b):
-    if a == b:
-        return 'draw'
-    elif
+def get_computer_selection():
+    selection = random.randint(0, len(Action) - 1)
+    return Action(selection)
 
 
-for i in range(100):
-    print(i+1)
+def determine_winner(user_action, computer_action):
+    if user_action == computer_action:
+        print(f"Оба пользователя выбрали {user_action.name}. Ничья!")
+    elif user_action == Action.Rock:
+        if computer_action == Action.Scissors:
+            print("Камень бьет ножницы! Вы победили!")
+        else:
+            print("Бумага оборачивает камень! Вы проиграли.")
+    elif user_action == Action.Paper:
+        if computer_action == Action.Rock:
+            print("Бумага оборачивает камень! Вы победили!")
+        else:
+            print("Ножницы режут бумагу! Вы проиграли.")
+    elif user_action == Action.Scissors:
+        if computer_action == Action.Paper:
+            print("Ножницы режут бумагу! Вы победили!")
+        else:
+            print("Камень бьет ножницы! Вы проиграли.")
+
+for i in range(10):
+    user_action = get_computer_selection()
+    computer_action = get_computer_selection()
+    determine_winner(user_action, computer_action)
+
 
 
