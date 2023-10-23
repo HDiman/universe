@@ -8,33 +8,33 @@ class Action(IntEnum):
     Scissors = 2
 
 
-def get_computer_selection():
+def get_selection():
     selection = random.randint(0, len(Action) - 1)
     return Action(selection)
 
 
-def determine_winner(user_action, computer_action):
-    if user_action == computer_action:
-        print(f"Оба пользователя выбрали {user_action.name}. Ничья!")
-    elif user_action == Action.Rock:
-        if computer_action == Action.Scissors:
-            print("Камень бьет ножницы! Вы победили!")
+def determine_winner(one_action, other_action):
+    if one_action == other_action:
+        print(f"Силы равны. Никто не победил!")
+    elif one_action == Action.Rock:
+        if other_action == Action.Scissors:
+            print("Победа! Планета захвачена!")
         else:
-            print("Бумага оборачивает камень! Вы проиграли.")
-    elif user_action == Action.Paper:
-        if computer_action == Action.Rock:
-            print("Бумага оборачивает камень! Вы победили!")
+            print("Неудача! Ваша планета захвачена!")
+    elif one_action == Action.Paper:
+        if other_action == Action.Rock:
+            print("Победа! Планета захвачена!")
         else:
-            print("Ножницы режут бумагу! Вы проиграли.")
-    elif user_action == Action.Scissors:
-        if computer_action == Action.Paper:
-            print("Ножницы режут бумагу! Вы победили!")
+            print("Неудача! Ваша планета захвачена!")
+    elif one_action == Action.Scissors:
+        if other_action == Action.Paper:
+            print("Победа! Планета захвачена!")
         else:
-            print("Камень бьет ножницы! Вы проиграли.")
+            print("Неудача! Ваша планета захвачена!")
 
 for i in range(10):
-    user_action = get_computer_selection()
-    computer_action = get_computer_selection()
+    user_action = get_selection()
+    computer_action = get_selection()
     determine_winner(user_action, computer_action)
 
 
