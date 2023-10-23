@@ -48,10 +48,15 @@ def determine_winner(one_action, other_action, num):
             return num
 
 num = 0
-for i in range(10):
+for i in range(100000):
     user_action = get_selection()
     computer_action = get_selection()
     num = determine_winner(user_action, computer_action, num)
-
+    if num == 100:
+        print(f"{i} бой: Новая Галактика захвачена! 100 новых планет наши!")
+        break
+    elif num == -100:
+        print(f"{i} бой: Наша Галактика захвачена! 100 наших планет захвачены!")
+        break
 
 
