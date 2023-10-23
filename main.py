@@ -13,29 +13,45 @@ def get_selection():
     return Action(selection)
 
 
-def determine_winner(one_action, other_action):
+def determine_winner(one_action, other_action, num):
     if one_action == other_action:
-        print(f"Силы равны. Никто не победил!")
+        num += 0
+        print(f"Силы равны. Никто не победил! Планет: {num}")
+        return num
+
     elif one_action == Action.Rock:
         if other_action == Action.Scissors:
-            print("Победа! Планета захвачена!")
+            num += 1
+            print(f"Победа! Планета захвачена! Планет: {num}")
+            return num
         else:
-            print("Неудача! Ваша планета захвачена!")
+            num -= 1
+            print(f"Неудача! Ваша планета захвачена! Планет: {num}")
+            return num
     elif one_action == Action.Paper:
         if other_action == Action.Rock:
-            print("Победа! Планета захвачена!")
+            num += 1
+            print(f"Победа! Планета захвачена! Планет: {num}")
+            return num
         else:
-            print("Неудача! Ваша планета захвачена!")
+            num -= 1
+            print(f"Неудача! Ваша планета захвачена! Планет: {num}")
+            return num
     elif one_action == Action.Scissors:
         if other_action == Action.Paper:
-            print("Победа! Планета захвачена!")
+            num += 1
+            print(f"Победа! Планета захвачена! Планет: {num}")
+            return num
         else:
-            print("Неудача! Ваша планета захвачена!")
+            num -= 1
+            print(f"Неудача! Ваша планета захвачена! Планет: {num}")
+            return num
 
+num = 0
 for i in range(10):
     user_action = get_selection()
     computer_action = get_selection()
-    determine_winner(user_action, computer_action)
+    num = determine_winner(user_action, computer_action, num)
 
 
 
